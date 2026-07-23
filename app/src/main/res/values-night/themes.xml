@@ -1,0 +1,26 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Base.Theme.MyApplicationtest" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your dark theme here. -->
+        <item name="colorPrimary">@color/md_theme_dark_primary</item>
+        <item name="colorPrimaryVariant">@color/md_theme_dark_primaryContainer</item>
+        <item name="colorSecondary">@color/md_theme_dark_secondary</item>
+        <item name="colorSecondaryVariant">@color/md_theme_dark_secondaryContainer</item>
+        <item name="colorTertiary">@color/md_theme_dark_tertiary</item>
+        <item name="colorSurface">@color/md_theme_dark_surface</item>
+        <item name="colorSurfaceVariant">@color/md_theme_dark_surfaceDim</item>
+        <item name="colorOnPrimary">@color/md_theme_dark_inversePrimary</item>
+        <item name="colorOnSecondary">@color/md_theme_dark_inverseOnSurface</item>
+        <item name="colorOnSurface">@color/md_theme_dark_inverseOnSurface</item>
+    </style>
+
+    <style name="Theme.MyApplicationtest" parent="Base.Theme.MyApplicationtest" />
+
+    <style name="Theme.MyApplicationtest.NoActionBar" parent="Base.Theme.MyApplicationtest">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.MyApplicationtest.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.MyApplicationtest.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+</resources>

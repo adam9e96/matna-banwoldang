@@ -1,0 +1,58 @@
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="button_color">#66BB6A</color>
+    <color name="color_on_click">#26A69A</color>
+    <color name="colorAccent">#1A0220</color>
+    <color name="gray_template">#2c2d33</color>
+    <color name="text_01">#F1DFDF</color>
+    <color name="text_02">#C35B5B</color>
+    <color name="gray_700">#2c2d33</color>
+    <color name="Jred_500">#ff6b6b</color>
+    <color name="background_ground">#E8F5E9</color>
+    <color name="colorBackground_">#fbfaef</color>
+    <color name="colorContainer_">#efeee4</color>
+    <color name="colorChipCtg_">#e2e4d1</color>
+    <color name="extendBtn_">#71873d</color>
+    <color name="colorSearch_">#EDEDE7</color>
+    <color name="bottomNavi_">#e3e3d9</color>
+
+    <color name="colorPrimary">#3d4726</color> <!-- 선택되지 않은 아이템 색상 -->
+    <color name="colorPrimaryDark">#004d30</color> <!-- 선택된 아이템 색상 -->
+
+    <color name="switchThumbColor_">#71873d</color>
+    <color name="switchTrackColor_">#E4E1E4C8</color>
+    <color name="systembar">#354900</color>
+    <color name="SecondaryContainer">#657d2d</color>
+    <color name="Primary">#415708</color>
+    <color name="colorAccentNavi">#C35B5B</color>
+    <color name="colorNavi_checked">#3d4726</color>
+
+    <color name="green">#4c662b</color>
+    <color name="gray">#757575</color>
+    <color name="colorActiveIndicator">#3b4a34</color> <!-- 원하는 색상 코드로 변경 -->
+
+
+    <color name="md_theme_light_primary">#4c662b</color>
+    <color name="md_theme_light_secondary">#586249</color>
+    <color name="md_theme_light_tertiary">#386663</color>
+    <color name="md_theme_light_primaryContainer">#cdeda3</color>
+    <color name="md_theme_light_secondaryContainer">#dce7c8</color>
+    <color name="md_theme_light_inverseOnSurface">#f1f2e6</color>
+    <color name="md_theme_light_inversePrimary">#b1d18a</color>
+    <color name="md_theme_light_surfaceDim">#dadbd0</color>
+    <color name="md_theme_light_surface">#f9faef</color>
+    <color name="md_theme_dark_primary">#4c662b</color>
+    <color name="md_theme_dark_secondary">#586249</color>
+    <color name="md_theme_dark_tertiary">#386663</color>
+    <color name="md_theme_dark_primaryContainer">#cdeda3</color>
+    <color name="md_theme_dark_secondaryContainer">#dce7c8</color>
+    <color name="md_theme_dark_inverseOnSurface">#f1f2e6</color>
+    <color name="md_theme_dark_inversePrimary">#b1d18a</color>
+    <color name="md_theme_dark_surfaceDim">#dadbd0</color>
+    <color name="md_theme_dark_surface">#f9faef</color>
+    <color name="checked_chip_color">#386663</color>
+    <color name="checked_color_chip">#cdeda3</color>
+    <color name="default_color_chip">#e2e4d1</color>
+
+</resources>

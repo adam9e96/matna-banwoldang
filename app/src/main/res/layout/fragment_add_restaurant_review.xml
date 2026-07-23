@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground_"
+    tools:context=".main.view.AddRestaurantReview">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/mynum1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:fontFamily="@font/noto_sans"
+            android:textStyle="bold"
+            android:text="이 가게의 점수를 알려주세요"
+            android:textSize="25dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RatingBar
+            android:id="@+id/add_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:numStars="5"
+            android:stepSize="0.5"
+            android:rating="0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mynum1" />
+
+        <EditText
+            android:layout_marginTop="20sp"
+            android:id="@+id/add_menu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/review_"
+            android:textColor="#1a1c16"
+            android:fontFamily="@font/noto_sans"
+            android:hint="추천메뉴"
+            android:maxLength="30"
+            android:padding="13sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/add_rating" />
+
+        <EditText
+            android:id="@+id/add_review"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="20dp"
+            android:layout_marginBottom="60dp"
+            android:background="@drawable/review_"
+            android:textColor="#1a1c16"
+            android:fontFamily="@font/noto_sans"
+            android:gravity="left"
+            android:hint="500자 이하로 작성해주세요"
+            android:maxLength="500"
+            android:padding="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/guideline2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/add_menu">
+
+        </EditText>
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_end="60dp" />
+
+
+        <EditText
+            android:id="@+id/text_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10sp"
+            android:layout_marginBottom="10sp"
+            android:background="@null"
+            android:clickable="false"
+            android:focusable="false"
+            android:fontFamily="@font/noto_sans"
+            android:text="0 / 500자"
+            android:textColor="#9999"
+            app:layout_constraintBottom_toBottomOf="@+id/add_review"
+            app:layout_constraintEnd_toEndOf="@+id/add_review" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

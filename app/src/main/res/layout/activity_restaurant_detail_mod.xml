@@ -1,0 +1,605 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground_"
+    android:orientation="vertical">
+
+    <!-- MaterialToolbar 추가 -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/topAppBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:backgroundTint="@color/systembar"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.MaterialComponents.ActionBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        app:title="수정 페이지"
+        app:titleTextColor="@android:color/white" />
+
+    <!-- ScrollView 추가 -->
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/bnv_main"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topAppBar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Left Guideline -->
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.02" />
+
+            <!-- Right Guideline -->
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.98" />
+
+            <!-- 이미지 그룹 -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/detail_rs_image_container"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/border_radius2"
+                android:padding="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/guideline_right"
+                app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <!-- 레스토랑 이름 -->
+                <EditText
+                    android:id="@+id/restaurantName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/noto_sans"
+                    android:hint="맛집 이름"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!-- 북마크 -->
+                <ToggleButton
+                    android:id="@+id/restaurantBookmark"
+                    android:layout_width="40sp"
+                    android:layout_height="40sp"
+                    android:background="@drawable/button_favorite"
+                    android:checked="false"
+                    android:fontFamily="@font/noto_sans"
+                    android:text=""
+                    android:textOff=""
+                    android:textOn=""
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/restaurantName" />
+
+                <!-- 레스토랑 이미지 -->
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/detail_rs_image"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:contentDescription="@string/rs_image_desc"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/sr_sulok"
+                    app:layout_constraintDimensionRatio="H,16:9"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/restaurantBookmark"
+                    app:shapeAppearance="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- 메인 카테고리 그룹 -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/detail_rs_info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/border_radius2"
+                android:padding="16dp"
+                app:layout_constraintEnd_toEndOf="@+id/guideline_right"
+                app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                app:layout_constraintTop_toBottomOf="@id/detail_rs_image_container">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    app:cardBackgroundColor="@android:color/transparent"
+                    app:cardElevation="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <!-- 맛집 메뉴 -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:paddingBottom="8dp">
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_marginEnd="8dp"
+                                android:src="@drawable/icon_menu_rounded" />
+
+                            <TextView
+                                android:id="@+id/restaurantMenuTitle"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/noto_sans"
+                                android:text="맛집 메뉴"
+                                android:textColor="@color/colorAccent"
+                                android:textSize="18sp" />
+                        </LinearLayout>
+
+                        <EditText
+                            android:id="@+id/restaurantMenu"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10sp"
+                            android:background="@drawable/rounded_textview"
+                            android:fontFamily="@font/noto_sans"
+                            android:hint="맛집 메뉴"
+                            android:padding="10sp"
+                            android:textColor="@color/black"
+                            android:textSize="16sp" />
+
+                        <!-- 레스토랑 평점 -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingTop="16dp">
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_marginEnd="8dp"
+                                android:src="@drawable/icon_stars_rounded" />
+
+                            <TextView
+                                android:id="@+id/restaurantRatingTitle"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/noto_sans"
+                                android:text="평점"
+                                android:textColor="@color/colorAccent"
+                                android:textSize="18sp" />
+                        </LinearLayout>
+
+                        <RatingBar
+                            android:id="@+id/restaurantRating"
+                            style="@style/Widget.AppCompat.RatingBar.Indicator"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10sp"
+                            android:isIndicator="false"
+                            android:numStars="5"
+                            android:rating="0"
+                            android:stepSize="0.5" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+                            <!-- 수평선 추가 -->
+                            <View
+                                android:id="@+id/horizontalLine2"
+                                android:layout_width="100dp"
+                                android:layout_height="2dp"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="30dp"
+                                android:background="@color/Primary"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/producerNames" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingBottom="8dp">
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_marginEnd="8dp"
+                                android:src="@drawable/icon_reviews" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/restaurantReviewTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/noto_sans"
+                                android:text="리뷰"
+                                android:textColor="@color/colorAccent"
+                                android:textSize="18sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="160sp"
+                                android:layout_marginTop="10sp"
+                                android:background="@drawable/rounded_textview"
+                                android:padding="10sp">
+
+                                <EditText
+                                    android:id="@+id/restaurantReview"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/rounded_textview"
+                                    android:fontFamily="@font/noto_sans"
+                                    android:hint="리뷰 내용 500자"
+                                    android:inputType="textMultiLine"
+                                    android:maxLines="5"
+                                    android:overScrollMode="always"
+                                    android:scrollbars="vertical"
+                                    android:scrollHorizontally="false"
+                                    android:textColor="@color/black"
+                                    android:textSize="15sp" />
+                            </FrameLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- 서브 그룹 -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/detail_sub_INFO"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/border_radius2"
+                android:padding="16dp"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/guideline_right"
+                app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                app:layout_constraintTop_toBottomOf="@id/detail_rs_info">
+
+                <!-- 레스토랑 위도 -->
+                <FrameLayout
+                    android:id="@+id/restaurantMap"
+                    android:layout_width="match_parent"
+                    android:layout_height="100sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.gms.maps.MapView
+                        android:id="@+id/restaurantMap1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </FrameLayout>
+
+                <!-- 레스토랑 카테고리 -->
+                <TextView
+                    android:id="@+id/labelRestaurantCategory"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/noto_sans"
+                    android:text="카테고리"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/restaurantCategory"
+                    app:layout_constraintEnd_toStartOf="@id/restaurantCategory"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/restaurantMap" />
+
+                <TextView
+                    android:id="@+id/restaurantCategory"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10sp"
+                    android:background="@drawable/rounded_textview"
+                    android:clickable="true"
+                    android:drawableEnd="@drawable/icon_edit_color"
+                    android:drawablePadding="8dp"
+                    android:focusable="true"
+                    android:fontFamily="@font/noto_sans"
+                    android:padding="10sp"
+                    android:text="카테고리"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/labelRestaurantCategory"
+                    app:layout_constraintTop_toBottomOf="@id/restaurantMap" />
+
+                <!-- 레스토랑 태그 -->
+                <TextView
+                    android:id="@+id/labelRestaurantTags"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/noto_sans"
+                    android:text="태그"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/restaurantTags"
+                    app:layout_constraintEnd_toStartOf="@id/restaurantTags"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/restaurantCategory" />
+
+                <TextView
+                    android:id="@+id/restaurantTags"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10sp"
+                    android:background="@drawable/rounded_textview"
+                    android:clickable="true"
+                    android:drawableEnd="@drawable/icon_edit_color"
+                    android:drawablePadding="8dp"
+                    android:focusable="true"
+                    android:fontFamily="@font/noto_sans"
+                    android:padding="10sp"
+                    android:text="태그"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/labelRestaurantTags"
+                    app:layout_constraintTop_toBottomOf="@id/restaurantCategory" />
+
+                <!-- 레스토랑 영업일 -->
+                <TextView
+                    android:id="@+id/labelRestaurantBusinessDays"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/noto_sans"
+                    android:text="영업일"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/restaurantBusinessDays"
+                    app:layout_constraintEnd_toStartOf="@id/restaurantBusinessDays"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/restaurantTags" />
+
+                <TextView
+                    android:id="@+id/restaurantBusinessDays"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10sp"
+                    android:background="@drawable/rounded_textview"
+                    android:clickable="true"
+                    android:drawableEnd="@drawable/icon_edit_color"
+                    android:drawablePadding="8dp"
+                    android:focusable="true"
+                    android:fontFamily="@font/noto_sans"
+                    android:padding="10sp"
+                    android:text="영업일"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/labelRestaurantBusinessDays"
+                    app:layout_constraintTop_toBottomOf="@id/restaurantTags" />
+
+                <!-- 레스토랑 영업시간 -->
+                <TextView
+                    android:id="@+id/labelRestaurantBusinessHours"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="11dp"
+                    android:fontFamily="@font/noto_sans"
+                    android:text="영업 시간"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/restaurantBusinessHours"
+                    app:layout_constraintEnd_toStartOf="@id/restaurantBusinessHours"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/restaurantBusinessDays" />
+
+                <Button
+                    android:id="@+id/restaurantBusinessHours"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/SecondaryContainer"
+                    android:drawableEnd="@drawable/icon_edit_"
+                    android:drawablePadding="8dp"
+                    android:fontFamily="@font/noto_sans"
+                    android:text="00:00"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@+id/restaurantBusinessHours2"
+                    app:layout_constraintStart_toEndOf="@id/labelRestaurantBusinessHours"
+                    app:layout_constraintTop_toBottomOf="@id/restaurantBusinessDays" />
+
+                <Button
+                    android:id="@+id/restaurantBusinessHours2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/SecondaryContainer"
+                    android:drawableEnd="@drawable/icon_edit_"
+                    android:drawablePadding="8dp"
+                    android:fontFamily="@font/noto_sans"
+                    android:text="00:00"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/restaurantBusinessHours"
+                    app:layout_constraintTop_toBottomOf="@id/restaurantBusinessDays" />
+
+                <!-- 레스토랑 휴식 시간 -->
+                <TextView
+                    android:id="@+id/labelRestaurantBreakTime"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="9dp"
+                    android:fontFamily="@font/noto_sans"
+                    android:text="휴식 시간"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/restaurantBreakTime"
+                    app:layout_constraintEnd_toStartOf="@id/restaurantBreakTime"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/restaurantBusinessHours" />
+
+                <Button
+                    android:id="@+id/restaurantBreakTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/SecondaryContainer"
+                    android:drawableEnd="@drawable/icon_edit_"
+                    android:drawablePadding="8dp"
+                    android:fontFamily="@font/noto_sans"
+                    android:text="00:00"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@+id/restaurantBreakTime2"
+                    app:layout_constraintStart_toEndOf="@id/labelRestaurantBreakTime"
+                    app:layout_constraintTop_toBottomOf="@id/restaurantBusinessHours" />
+
+                <Button
+                    android:id="@+id/restaurantBreakTime2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/SecondaryContainer"
+                    android:drawableEnd="@drawable/icon_edit_"
+                    android:drawablePadding="8dp"
+                    android:fontFamily="@font/noto_sans"
+                    android:text="00:00"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/restaurantBreakTime"
+                    app:layout_constraintTop_toBottomOf="@id/restaurantBusinessHours" />
+
+                <!-- 레스토랑 리뷰 작성일 -->
+                <TextView
+                    android:id="@+id/labelRestaurantReviewDate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/noto_sans"
+                    android:text="리뷰 작성일"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/restaurantReviewDate"
+                    app:layout_constraintEnd_toStartOf="@id/restaurantReviewDate"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/restaurantBreakTime" />
+
+                <TextView
+                    android:id="@+id/restaurantReviewDate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10sp"
+                    android:background="@drawable/rounded_textview"
+                    android:clickable="true"
+                    android:drawablePadding="8dp"
+                    android:focusable="true"
+                    android:fontFamily="@font/noto_sans"
+                    android:padding="10sp"
+                    android:text="리뷰 작성일"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/labelRestaurantReviewDate"
+                    app:layout_constraintTop_toBottomOf="@id/restaurantBreakTime"
+                    app:layout_constraintVertical_bias="1.0" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                app:layout_constraintEnd_toEndOf="@id/guideline_right"
+                app:layout_constraintStart_toStartOf="@id/guideline_left"
+                app:layout_constraintTop_toBottomOf="@id/detail_sub_INFO">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/detail_complete_btn"
+                    style="@style/Widget.Material3.Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10sp"
+                    android:layout_marginBottom="20sp"
+                    android:backgroundTint="#b5d58e"
+                    android:fontFamily="@font/noto_sans"
+                    android:text="완료하기"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <!-- ProgressBar 추가 -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <!-- 네비게이션바 작업 네비 계이션 바는 스크롤뷰 밑에 존재하며 스크롤 뷰는 네비게션바를 침범할수없음 -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bnv_main"
+        style="@style/BottomNavigationViewActiveIndicator"
+        android:layout_width="0dp"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/bottomNavi_"
+        app:itemIconTint="@color/bottom_navigation_selector"
+        app:itemTextColor="@color/bottom_navigation_selector"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/botoomnavi" />
+</androidx.constraintlayout.widget.ConstraintLayout>

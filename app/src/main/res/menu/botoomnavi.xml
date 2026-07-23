@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/naviHome"
+        android:icon="@drawable/icon_home"
+        android:title="@string/bottom_navi_home"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/naviSearch"
+        android:icon="@drawable/icon_dungeon"
+        android:title="@string/bottom_navi_near"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/naviFavorite"
+        android:icon="@drawable/icon_favorite_filled"
+        android:title="@string/bottom_navi_favorite"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/naviAdd"
+        android:icon="@drawable/icon_add"
+        android:title="@string/bottom_navi_add"
+        app:showAsAction="ifRoom" />
+</menu>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="4dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bookmark_item"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@color/colorContainer_"
+        android:contentDescription="@string/bookmark_item_desc"
+        tools:targetApi="UPSIDE_DOWN_CAKE">
+
+        <!-- Left Guideline -->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.02" />
+
+        <!-- Right Guideline -->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="8dp" />
+
+        <!-- Top Guideline -->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.1" />
+
+        <!-- Bottom Guideline -->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.9" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/restaurant_image"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginBottom="6dp"
+            android:contentDescription="@string/bookmark_image_desc"
+            android:scaleType="centerCrop"
+            android:src="@drawable/sr_sulok"
+            app:layout_constraintBottom_toBottomOf="@id/guideline_bottom"
+            app:layout_constraintDimensionRatio="H,16:9"
+            app:layout_constraintStart_toStartOf="@id/guideline_left"
+            app:layout_constraintTop_toTopOf="@+id/guideline_top"
+            app:shapeAppearance="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
+
+        <TextView
+            android:id="@+id/restaurant_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:contentDescription="@string/bookmark_restaurant_name_desc"
+            android:fontFamily="@font/noto_sans_bold"
+            android:text="@string/bookmark_restaurant_name"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/bookmark_switch"
+            app:layout_constraintStart_toEndOf="@+id/restaurant_image"
+            app:layout_constraintTop_toTopOf="@+id/guideline_top" />
+
+        <com.google.android.material.materialswitch.MaterialSwitch
+            android:id="@+id/bookmark_switch"
+            style="@style/CustomMaterialSwitch"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/bookmark_switch_desc"
+            app:layout_constraintEnd_toEndOf="@+id/guideline_right"
+            app:layout_constraintTop_toTopOf="@+id/guideline_top" />
+
+        <TextView
+            android:id="@+id/menu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:contentDescription="@string/bookmark_menu_desc"
+            android:fontFamily="@font/noto_sans"
+            android:text="@string/bookmark_menu"
+            app:layout_constraintEnd_toStartOf="@+id/bookmark_switch"
+            app:layout_constraintStart_toEndOf="@+id/restaurant_image"
+            app:layout_constraintTop_toBottomOf="@+id/restaurant_name" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/restaurant_rating"
+            app:layout_constraintEnd_toStartOf="@+id/restaurant_rating"
+            app:layout_constraintStart_toEndOf="@id/restaurant_image"
+            app:layout_constraintTop_toTopOf="@+id/restaurant_rating"
+            app:srcCompat="@drawable/icon_bookmart_star" />
+
+        <TextView
+            android:id="@+id/restaurant_rating"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="0.5dp"
+            android:contentDescription="@string/bookmark_rating_desc"
+            android:fontFamily="@font/noto_sans"
+            android:text="@string/bookmark_rating"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+            app:layout_constraintStart_toEndOf="@+id/imageView3"
+            app:layout_constraintTop_toBottomOf="@+id/menu" />
+
+        <TextView
+            android:id="@+id/restaurant_review_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8sp"
+            android:layout_marginEnd="0.5sp"
+            android:layout_marginBottom="1sp"
+            android:contentDescription="@string/bookmark_review_date_desc"
+            android:fontFamily="@font/noto_sans"
+            android:gravity="end"
+            android:text="@string/bookmark_review_date"
+            app:layout_constraintBottom_toTopOf="@+id/guideline_bottom"
+            app:layout_constraintEnd_toEndOf="@+id/guideline_right"
+            app:layout_constraintStart_toEndOf="@+id/restaurant_image"
+            app:layout_constraintTop_toBottomOf="@+id/restaurant_rating" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

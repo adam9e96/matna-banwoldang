@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--  ImageView Style  -->
+    <style name="ShapeAppearanceOverlay.App.CornerSize50Percent" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerSize">10%</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.App.CornerSize10Percent" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerSize">10%</item>
+    </style>
+    <style name="dialog_cancel_button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/style_round_corner_btn</item>
+        <item name="android:textColor">@color/text_01</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAlignment">center</item>
+        <item name="backgroundTint">@color/gray_700</item>
+    </style>
+    <style name="dialog_check_button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/style_round_corner_btn</item>
+        <item name="android:textColor">@color/text_01</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="borderRound">10dp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="backgroundTint">@color/Jred_500</item>
+    </style>
+    <style name="RoundedImageView" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.RoundedImageView</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.RoundedImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+    <style name="MyTimePickerTheme" parent="android:Widget.Material.Light.TimePicker">
+        <item name="android:timePickerMode">spinner</item>
+    </style>
+    <style name="ShapeAppearanceOverlay.App.CornerSize16dp" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
+    <style name="CustomToastDialog" parent="android:Theme.Translucent.NoTitleBar">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowAnimationStyle">@style/AnimationToast</item>
+    </style>
+
+    <style name="AnimationToast">
+        <item name="android:windowEnterAnimation">@anim/slide_in_bottom</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_top</item>
+    </style>
+    <style name="CustomMaterialSwitch" parent="Widget.Material3.CompoundButton.MaterialSwitch">
+        <item name="thumbTint">@color/switchThumbColor_</item>
+        <item name="trackTint">@color/switchTrackColor_</item>
+    </style>
+    <!-- res/values/styles.xml -->
+    <style name="CustomTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabSelectedTextColor">#4c662b</item>
+        <item name="tabIndicatorColor">#4c662b</item>
+    </style>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="BottomNavigationViewStyle" parent="Widget.Design.BottomNavigationView">
+        <item name="itemIconTint">@color/bottom_navigation_selector</item>
+        <item name="itemTextColor">@color/bottom_navigation_selector</item>
+        <item name="itemBackground">@drawable/bottom_navigation_item_background</item>
+    </style>
+    <!-- 다른 스타일 정의 -->
+    <style name="CustomRatingBar" parent="Widget.AppCompat.RatingBar">
+        <item name="android:progressDrawable">@drawable/custom_rating_star</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:maxHeight">48dp</item>
+    </style>
+    <style name="aa">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">10sp</item>
+    </style>
+    <style name="BottomNavigationViewActiveIndicator" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="itemActiveIndicatorStyle">@style/ActiveIndicatorStyle</item>
+    </style>
+
+    <style name="ActiveIndicatorStyle" parent="">
+        <item name="android:color">@color/colorActiveIndicator</item>
+    </style>
+
+</resources>

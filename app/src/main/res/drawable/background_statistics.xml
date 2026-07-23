@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape android:shape="rectangle" xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 선택된 배경색 -->
+    <solid android:color="#eeefe3" /> <!-- 회색 -->
+
+    <!-- 테두리 -->
+    <!--    <stroke android:width="0.5dp" android:color="#0B0A09" /> &lt;!&ndash;두꺼운 검정색 테두리 &ndash;&gt;-->
+
+    <!-- 모서리를 부드럽게 -->
+    <corners android:radius="20dp" />
+</shape>

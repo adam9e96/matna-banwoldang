@@ -1,0 +1,23 @@
+# Android Studio / IDE
+/.idea/
+/.kotlin/
+*.iml
+.DS_Store
+
+# Gradle / Android build outputs
+/.gradle/
+/build/
+/app/build/
+/captures/
+.externalNativeBuild/
+.cxx/
+*.apk
+*.aab
+
+# Local SDK and credentials
+/local.properties
+/secrets.properties
+/app/google-services.json
+*.jks
+*.keystore
+/keystore.properties

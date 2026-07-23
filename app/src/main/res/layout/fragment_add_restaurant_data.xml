@@ -1,0 +1,1144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground_"
+    tools:context=".main.view.AddRestaurantDataFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.047058824" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="60sp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="20sp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_end="60sp" />
+
+            <ImageView
+                android:id="@+id/store_name_icon"
+                android:layout_width="24sp"
+                android:layout_height="24sp"
+                android:layout_marginEnd="8dp"
+                android:src="@drawable/icon_title_"
+                app:layout_constraintBottom_toBottomOf="@id/restaurantName1"
+                app:layout_constraintStart_toStartOf="@id/guideline1"
+                app:layout_constraintTop_toTopOf="@id/restaurantName1" />
+
+            <TextView
+                android:id="@+id/restaurantName1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/noto_sans"
+                android:padding="12sp"
+                android:text="가게이름"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                app:layout_constraintStart_toEndOf="@id/store_name_icon"
+                app:layout_constraintTop_toBottomOf="@id/guideline2" />
+
+
+            <EditText
+                android:id="@+id/restaurantName"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/input_text_store_"
+                android:fontFamily="@font/noto_sans"
+                android:hint="가게이름 입력!"
+                android:maxLength="30"
+                android:padding="10sp"
+                app:layout_constraintBottom_toTopOf="@+id/gropup"
+                app:layout_constraintEnd_toEndOf="@+id/guideline3"
+                app:layout_constraintStart_toEndOf="@+id/restaurantName1"
+                app:layout_constraintTop_toBottomOf="@+id/guideline2" />
+
+            <ImageView
+                android:id="@+id/restaurant_day_icon"
+                android:layout_width="24sp"
+                android:layout_height="24sp"
+                android:layout_marginEnd="8dp"
+                android:src="@drawable/icon_day_rounded"
+                app:layout_constraintBottom_toBottomOf="@id/restaurantDay"
+                app:layout_constraintStart_toStartOf="@id/guideline1"
+                app:layout_constraintTop_toTopOf="@id/restaurantDay" />
+
+            <TextView
+                android:id="@+id/restaurantDay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/noto_sans"
+                android:padding="12sp"
+                android:text="영업일"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toTopOf="@+id/restaurantTime"
+                app:layout_constraintStart_toEndOf="@id/restaurant_day_icon"
+                app:layout_constraintTop_toBottomOf="@+id/restaurantName1" />
+            <!-- 일반 스크롤뷰는 수직으로 작동되기 떄문에 HorizontalScrollView 를 사용해야됨 -->
+
+            <!-- 영업일 밑에 -->
+            <HorizontalScrollView
+                android:id="@+id/gropup"
+                android:layout_width="0sp"
+                android:layout_height="0sp"
+                app:layout_constraintBottom_toTopOf="@+id/restaurantTime"
+                app:layout_constraintEnd_toEndOf="@+id/guideline3"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/restaurantDay"
+                app:layout_constraintTop_toBottomOf="@+id/restaurantName1"
+                app:layout_constraintVertical_bias="0.076">
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/gropup1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="parent"
+                    app:singleLine="false"
+                    app:singleSelection="false">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/monday"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:background="@drawable/selector_raid_button"
+                        android:checkable="true"
+                        android:clickable="true"
+                        android:ellipsize="end"
+                        android:focusable="true"
+                        android:fontFamily="@font/noto_sans"
+                        android:maxLines="1"
+                        android:text="월"
+                        android:textColor="@drawable/selector_raio_text"
+                        android:textSize="20sp"
+
+                        app:chipBackgroundColor="@color/colorChipCtg_" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/tuesday"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:background="@drawable/selector_raid_button"
+                        android:checkable="true"
+                        android:clickable="true"
+                        android:ellipsize="end"
+                        android:focusable="true"
+                        android:fontFamily="@font/noto_sans"
+                        android:maxLines="1"
+                        android:padding="10dp"
+                        android:text="화"
+                        android:textColor="@drawable/selector_raio_text"
+                        android:textSize="20sp"
+                        app:chipBackgroundColor="@color/colorChipCtg_" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/wednesday"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:background="@drawable/selector_raid_button"
+                        android:checkable="true"
+                        android:clickable="true"
+                        android:ellipsize="end"
+                        android:focusable="true"
+                        android:fontFamily="@font/noto_sans"
+                        android:maxLines="1"
+                        android:padding="10dp"
+                        android:text="수"
+                        android:textColor="@drawable/selector_raio_text"
+                        android:textSize="20sp"
+                        app:chipBackgroundColor="@color/colorChipCtg_" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/thursday"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:background="@drawable/selector_raid_button"
+                        android:checkable="true"
+                        android:clickable="true"
+                        android:ellipsize="end"
+                        android:focusable="true"
+                        android:fontFamily="@font/noto_sans"
+                        android:maxLines="1"
+                        android:padding="10dp"
+                        android:text="목"
+                        android:textColor="@drawable/selector_raio_text"
+                        android:textSize="20sp"
+                        app:chipBackgroundColor="@color/colorChipCtg_" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/friday"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:background="@drawable/selector_raid_button"
+                        android:checkable="true"
+                        android:clickable="true"
+                        android:ellipsize="end"
+                        android:focusable="true"
+                        android:fontFamily="@font/noto_sans"
+                        android:maxLines="1"
+                        android:padding="10dp"
+                        android:text="금"
+                        android:textAlignment="center"
+                        android:textColor="@drawable/selector_raio_text"
+                        android:textSize="20sp"
+                        app:chipBackgroundColor="@color/colorChipCtg_" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/saturday"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:background="@drawable/selector_raid_button"
+                        android:checkable="true"
+                        android:clickable="true"
+                        android:ellipsize="end"
+                        android:focusable="true"
+                        android:fontFamily="@font/noto_sans"
+                        android:maxLines="1"
+                        android:padding="10dp"
+                        android:text="토"
+                        android:textColor="@drawable/selector_raio_text"
+                        android:textSize="20sp"
+                        app:chipBackgroundColor="@color/colorChipCtg_" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/Sunday"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:background="@drawable/selector_raid_button"
+                        android:checkable="true"
+                        android:clickable="true"
+                        android:ellipsize="end"
+                        android:focusable="true"
+                        android:fontFamily="@font/noto_sans"
+                        android:maxLines="1"
+                        android:padding="10dp"
+                        android:text="일"
+                        android:textColor="@drawable/selector_raio_text"
+                        android:textSize="20sp"
+                        app:chipBackgroundColor="@color/colorChipCtg_" />
+                </com.google.android.material.chip.ChipGroup>
+            </HorizontalScrollView>
+
+            <ImageView
+                android:id="@+id/restaurant_time_icon"
+                android:layout_width="24sp"
+                android:layout_height="24sp"
+                android:layout_marginEnd="8dp"
+                android:src="@drawable/icon_hours_rounded"
+                app:layout_constraintBottom_toBottomOf="@id/restaurantTime"
+                app:layout_constraintStart_toStartOf="@id/guideline1"
+                app:layout_constraintTop_toTopOf="@id/restaurantTime" />
+
+            <TextView
+                android:id="@+id/restaurantTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/noto_sans"
+                android:padding="12sp"
+                android:text="영업시간"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                app:layout_constraintStart_toEndOf="@id/restaurant_time_icon"
+                app:layout_constraintTop_toBottomOf="@+id/restaurantDay" />
+
+            <Button
+                android:id="@+id/open_time_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/SecondaryContainer"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:fontFamily="@font/noto_sans"
+                android:text="00 : 00"
+                app:layout_constraintEnd_toStartOf="@+id/text01"
+                app:layout_constraintStart_toEndOf="@+id/restaurantTime"
+                app:layout_constraintTop_toBottomOf="@+id/restaurantDay" />
+
+            <TextView
+                android:id="@+id/text01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/noto_sans"
+                android:text="~"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@+id/open_time_start"
+                app:layout_constraintEnd_toStartOf="@+id/open_time_end"
+                app:layout_constraintStart_toEndOf="@+id/open_time_start"
+                app:layout_constraintTop_toTopOf="@+id/open_time_start" />
+
+            <Button
+                android:id="@+id/open_time_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/SecondaryContainer"
+                android:fontFamily="@font/noto_sans"
+                android:text="00 : 00"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/guideline3"
+                app:layout_constraintStart_toEndOf="@+id/text01"
+                app:layout_constraintTop_toTopOf="@+id/open_time_start" />
+            <!-- 영업시간 밑에 -->
+
+            <ImageView
+                android:id="@+id/restaurant_break_time_icon"
+                android:layout_width="24sp"
+                android:layout_height="24sp"
+                android:layout_marginEnd="8dp"
+                android:src="@drawable/icon_no_meal_rounded"
+                app:layout_constraintBottom_toBottomOf="@id/restaurantBreakTime"
+                app:layout_constraintStart_toStartOf="@id/guideline1"
+                app:layout_constraintTop_toTopOf="@id/restaurantBreakTime" />
+
+            <TextView
+                android:id="@+id/restaurantBreakTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/noto_sans"
+                android:padding="12sp"
+                android:text="브레이크타임"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                app:layout_constraintStart_toEndOf="@id/restaurant_break_time_icon"
+                app:layout_constraintTop_toBottomOf="@+id/restaurantTime" />
+
+            <Button
+                android:id="@+id/break_time_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/SecondaryContainer"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:fontFamily="@font/noto_sans"
+                android:text="00 : 00"
+                app:layout_constraintStart_toEndOf="@+id/restaurantBreakTime"
+                app:layout_constraintTop_toBottomOf="@+id/open_time_start" />
+
+            <TextView
+                android:id="@+id/text02"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/noto_sans"
+                android:text="~"
+
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@+id/break_time_start"
+                app:layout_constraintEnd_toStartOf="@+id/break_time_end"
+                app:layout_constraintStart_toEndOf="@+id/break_time_start"
+                app:layout_constraintTop_toTopOf="@+id/break_time_start" />
+
+            <Button
+                android:id="@+id/break_time_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/SecondaryContainer"
+                android:fontFamily="@font/noto_sans"
+                android:text="00 : 00"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/guideline3"
+                app:layout_constraintStart_toEndOf="@+id/text02"
+                app:layout_constraintTop_toTopOf="@+id/break_time_start" />
+
+            <Button
+                android:id="@+id/addImage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20sp"
+                android:background="@drawable/gallery_insert"
+                android:fontFamily="@font/noto_sans"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:text="사진등록"
+                app:layout_constraintEnd_toStartOf="@+id/guideline3"
+                app:layout_constraintStart_toStartOf="@+id/guideline1"
+                app:layout_constraintTop_toBottomOf="@+id/restaurantBreakTime" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/miniImage"
+                android:layout_marginTop="3sp"
+                android:layout_width="0dp"
+                android:layout_height="100sp"
+                android:src="@drawable/dash_line"
+                app:layout_constraintEnd_toStartOf="@+id/guideline3"
+                app:layout_constraintStart_toStartOf="@+id/guideline1"
+                app:layout_constraintTop_toBottomOf="@+id/addImage"
+                app:shapeAppearanceOverlay="@style/aa"/>
+
+            <!-- 카테고리 관련 시작  -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/category_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:drawableStart="@drawable/icon_category"
+                android:drawablePadding="8dp"
+                android:text="카테고리"
+                android:textSize="26sp"
+                app:fontFamily="@font/noto_sans"
+                app:layout_constraintEnd_toEndOf="@+id/guideline3"
+                app:layout_constraintStart_toStartOf="@+id/guideline1"
+                app:layout_constraintTop_toBottomOf="@+id/miniImage" />
+            <!-- 메인 카테고리 그룹 -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/main_category_container"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/border_radius"
+                android:padding="10dp"
+                app:layout_constraintEnd_toStartOf="@+id/guideline3"
+                app:layout_constraintStart_toStartOf="@+id/guideline1"
+                app:layout_constraintTop_toBottomOf="@+id/category_text">
+
+                <!-- ChipGroup 추가 -->
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/main_category_group"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:singleLine="false"
+                    app:singleSelection="true">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/main_category1"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:background="@drawable/chip_background"
+                        android:checkable="true"
+                        android:clickable="true"
+                        android:ellipsize="end"
+                        android:focusable="true"
+                        android:fontFamily="@font/noto_sans"
+                        android:maxLines="1"
+                        android:padding="10dp"
+                        android:text="@string/main_category1_string"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:checkedIcon="@drawable/icon_checked_"
+                        app:checkedIconVisible="true"
+                        app:chipBackgroundColor="@color/colorChipCtg_" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/main_category2"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:checkable="true"
+                        android:clickable="true"
+                        android:ellipsize="end"
+                        android:focusable="true"
+                        android:fontFamily="@font/noto_sans"
+                        android:maxLines="1"
+                        android:padding="10dp"
+                        android:text="@string/main_category2_string"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:checkedIcon="@drawable/icon_checked_"
+                        app:checkedIconVisible="true"
+                        app:chipBackgroundColor="@color/colorChipCtg_" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/main_category3"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:checkable="true"
+                        android:clickable="true"
+                        android:ellipsize="end"
+                        android:focusable="true"
+                        android:fontFamily="@font/noto_sans"
+                        android:maxLines="1"
+                        android:padding="10dp"
+                        android:text="@string/main_category3_string"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:checkedIcon="@drawable/icon_checked_"
+                        app:checkedIconVisible="true"
+                        app:chipBackgroundColor="@color/colorChipCtg_" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/main_category4"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:checkable="true"
+                        android:clickable="true"
+                        android:ellipsize="end"
+                        android:focusable="true"
+                        android:fontFamily="@font/noto_sans"
+                        android:maxLines="1"
+                        android:padding="10dp"
+                        android:text="@string/main_category4_string"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:checkedIcon="@drawable/icon_checked_"
+                        app:checkedIconVisible="true"
+                        app:chipBackgroundColor="@color/colorChipCtg_" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/main_category5"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:checkable="true"
+                        android:clickable="true"
+                        android:ellipsize="end"
+                        android:focusable="true"
+                        android:fontFamily="@font/noto_sans"
+                        android:maxLines="1"
+                        android:padding="10dp"
+                        android:text="@string/main_category5_string"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:checkedIcon="@drawable/icon_checked_"
+                        app:checkedIconVisible="true"
+                        app:chipBackgroundColor="@color/colorChipCtg_" />
+
+                </com.google.android.material.chip.ChipGroup>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <!-- 메인 카테고리 그룹 끝 -->
+            <!-- 태그 텍스트 추가  -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tag_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:drawableStart="@drawable/tag_icon"
+                android:drawablePadding="8dp"
+                android:text="@string/tag_text_string"
+                android:textSize="26sp"
+                app:fontFamily="@font/noto_sans"
+                app:layout_constraintEnd_toStartOf="@+id/guideline3"
+                app:layout_constraintStart_toStartOf="@+id/guideline1"
+                app:layout_constraintTop_toBottomOf="@id/main_category_container" />
+            <!-- 태그 텍스트 END -->
+
+            <!-- 메인 태그 그룹 -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/tag_container"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/border_radius"
+                android:padding="10dp"
+                app:layout_constraintEnd_toStartOf="@+id/guideline3"
+                app:layout_constraintStart_toStartOf="@+id/guideline1"
+                app:layout_constraintTop_toBottomOf="@id/tag_text">
+
+                <!-- ChipGroup 추가 -->
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/main_tag_group"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:singleLine="false"
+                    app:singleSelection="false">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/main_tag1"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:background="@drawable/chip_background"
+                        android:checkable="true"
+                        android:clickable="true"
+                        android:ellipsize="end"
+                        android:focusable="true"
+                        android:fontFamily="@font/noto_sans"
+                        android:maxLines="1"
+                        android:padding="10dp"
+                        android:text="비오는날 먹기좋은"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:checkedIcon="@drawable/icon_checked_"
+                        app:checkedIconVisible="true"
+                        app:chipBackgroundColor="@color/colorChipCtg_" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/main_tag2"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:checkable="true"
+                        android:clickable="true"
+                        android:ellipsize="end"
+                        android:focusable="true"
+                        android:fontFamily="@font/noto_sans"
+                        android:maxLines="1"
+                        android:padding="10dp"
+                        android:text="국물"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:checkedIcon="@drawable/icon_checked_"
+                        app:checkedIconVisible="true"
+                        app:chipBackgroundColor="@color/colorChipCtg_" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/main_tag3"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:checkable="true"
+                        android:clickable="true"
+                        android:ellipsize="end"
+                        android:focusable="true"
+                        android:fontFamily="@font/noto_sans"
+                        android:maxLines="1"
+                        android:padding="10dp"
+                        android:text="깔끔한맛"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:checkedIcon="@drawable/icon_checked_"
+                        app:checkedIconVisible="true"
+                        app:chipBackgroundColor="@color/colorChipCtg_" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/main_tag4"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:checkable="true"
+                        android:clickable="true"
+                        android:ellipsize="end"
+                        android:focusable="true"
+                        android:fontFamily="@font/noto_sans"
+                        android:maxLines="1"
+                        android:padding="10dp"
+                        android:text="혼자먹기 좋은"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:checkedIcon="@drawable/icon_checked_"
+                        app:checkedIconVisible="true"
+                        app:chipBackgroundColor="@color/colorChipCtg_" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/main_tag5"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:checkable="true"
+                        android:clickable="true"
+                        android:ellipsize="end"
+                        android:focusable="true"
+                        android:fontFamily="@font/noto_sans"
+                        android:maxLines="1"
+                        android:padding="10dp"
+                        android:text="밥"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:checkedIcon="@drawable/icon_checked_"
+                        app:checkedIconVisible="true"
+                        app:chipBackgroundColor="@color/colorChipCtg_" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/main_tag6"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:checkable="true"
+                        android:clickable="true"
+                        android:ellipsize="end"
+                        android:focusable="true"
+                        android:fontFamily="@font/noto_sans"
+                        android:maxLines="1"
+                        android:padding="10dp"
+                        android:text="튀김"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:checkedIcon="@drawable/icon_checked_"
+                        app:checkedIconVisible="true"
+                        app:chipBackgroundColor="@color/colorChipCtg_" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/main_tag7"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:checkable="true"
+                        android:clickable="true"
+                        android:ellipsize="end"
+                        android:focusable="true"
+                        android:fontFamily="@font/noto_sans"
+                        android:maxLines="1"
+                        android:padding="10dp"
+                        android:text="고기"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:checkedIcon="@drawable/icon_checked_"
+                        app:checkedIconVisible="true"
+                        app:chipBackgroundColor="@color/colorChipCtg_" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/main_tag8"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:checkable="true"
+                        android:clickable="true"
+                        android:ellipsize="end"
+                        android:focusable="true"
+                        android:fontFamily="@font/noto_sans"
+                        android:maxLines="1"
+                        android:padding="10dp"
+                        android:text="스테이크 먹고싶은날"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:checkedIcon="@drawable/icon_checked_"
+                        app:checkedIconVisible="true"
+                        app:chipBackgroundColor="@color/colorChipCtg_" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/main_tag9"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:checkable="true"
+                        android:clickable="true"
+                        android:ellipsize="end"
+                        android:focusable="true"
+                        android:fontFamily="@font/noto_sans"
+                        android:maxLines="1"
+                        android:padding="10dp"
+                        android:text="면"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:checkedIcon="@drawable/icon_checked_"
+                        app:checkedIconVisible="true"
+                        app:chipBackgroundColor="@color/colorChipCtg_" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/main_tag10"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:checkable="true"
+                        android:clickable="true"
+                        android:ellipsize="end"
+                        android:focusable="true"
+                        android:fontFamily="@font/noto_sans"
+                        android:maxLines="1"
+                        android:padding="10dp"
+                        android:text="매콤한"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:checkedIcon="@drawable/icon_checked_"
+                        app:checkedIconVisible="true"
+                        app:chipBackgroundColor="@color/colorChipCtg_" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/main_ta11"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:checkable="true"
+                        android:clickable="true"
+                        android:ellipsize="end"
+                        android:focusable="true"
+                        android:fontFamily="@font/noto_sans"
+                        android:maxLines="1"
+                        android:padding="10dp"
+                        android:text="컨셉이 확실한"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:checkedIcon="@drawable/icon_checked_"
+                        app:checkedIconVisible="true"
+                        app:chipBackgroundColor="@color/colorChipCtg_" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/main_tag12"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:checkable="true"
+                        android:clickable="true"
+                        android:ellipsize="end"
+                        android:focusable="true"
+                        android:fontFamily="@font/noto_sans"
+                        android:maxLines="1"
+                        android:padding="10dp"
+                        android:text="현지의 맛"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:checkedIcon="@drawable/icon_checked_"
+                        app:checkedIconVisible="true"
+                        app:chipBackgroundColor="@color/colorChipCtg_" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/main_tag13"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:checkable="true"
+                        android:clickable="true"
+                        android:ellipsize="end"
+                        android:focusable="true"
+                        android:fontFamily="@font/noto_sans"
+                        android:maxLines="1"
+                        android:padding="10dp"
+                        android:text="양념의 환상적임"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:checkedIcon="@drawable/icon_checked_"
+                        app:checkedIconVisible="true"
+                        app:chipBackgroundColor="@color/colorChipCtg_" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/main_tag14"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:checkable="true"
+                        android:clickable="true"
+                        android:ellipsize="end"
+                        android:focusable="true"
+                        android:fontFamily="@font/noto_sans"
+                        android:maxLines="1"
+                        android:padding="10dp"
+                        android:text="가성비"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:checkedIcon="@drawable/icon_checked_"
+                        app:checkedIconVisible="true"
+                        app:chipBackgroundColor="@color/colorChipCtg_" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/main_tag15"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:checkable="true"
+                        android:clickable="true"
+                        android:ellipsize="end"
+                        android:focusable="true"
+                        android:fontFamily="@font/noto_sans"
+                        android:maxLines="1"
+                        android:padding="10dp"
+                        android:text="양이많은"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:checkedIcon="@drawable/icon_checked_"
+                        app:checkedIconVisible="true"
+                        app:chipBackgroundColor="@color/colorChipCtg_" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/main_tag16"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:checkable="true"
+                        android:clickable="true"
+                        android:ellipsize="end"
+                        android:focusable="true"
+                        android:fontFamily="@font/noto_sans"
+                        android:maxLines="1"
+                        android:padding="10dp"
+                        android:text="덮밥"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:checkedIcon="@drawable/icon_checked_"
+                        app:checkedIconVisible="true"
+                        app:chipBackgroundColor="@color/colorChipCtg_" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/main_tag17"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:checkable="true"
+                        android:clickable="true"
+                        android:ellipsize="end"
+                        android:focusable="true"
+                        android:fontFamily="@font/noto_sans"
+                        android:maxLines="1"
+                        android:padding="10dp"
+                        android:text="고기먹고싶은날"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:checkedIcon="@drawable/icon_checked_"
+                        app:checkedIconVisible="true"
+                        app:chipBackgroundColor="@color/colorChipCtg_" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/main_tag18"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:checkable="true"
+                        android:clickable="true"
+                        android:ellipsize="end"
+                        android:focusable="true"
+                        android:fontFamily="@font/noto_sans"
+                        android:maxLines="1"
+                        android:padding="10dp"
+                        android:text="만두"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:checkedIcon="@drawable/icon_checked_"
+                        app:checkedIconVisible="true"
+                        app:chipBackgroundColor="@color/colorChipCtg_" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/main_tag19"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:checkable="true"
+                        android:clickable="true"
+                        android:ellipsize="end"
+                        android:focusable="true"
+                        android:fontFamily="@font/noto_sans"
+                        android:maxLines="1"
+                        android:padding="10dp"
+                        android:text="세트로 먹고싶을날"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:checkedIcon="@drawable/icon_checked_"
+                        app:checkedIconVisible="true"
+                        app:chipBackgroundColor="@color/colorChipCtg_" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/main_tag20"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:checkable="true"
+                        android:clickable="true"
+                        android:ellipsize="end"
+                        android:focusable="true"
+                        android:fontFamily="@font/noto_sans"
+                        android:maxLines="1"
+                        android:padding="10dp"
+                        android:text="매콤한맛"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:checkedIcon="@drawable/icon_checked_"
+                        app:checkedIconVisible="true"
+                        app:chipBackgroundColor="@color/colorChipCtg_" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/main_tag21"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:checkable="true"
+                        android:clickable="true"
+                        android:ellipsize="end"
+                        android:focusable="true"
+                        android:fontFamily="@font/noto_sans"
+                        android:maxLines="1"
+                        android:padding="10dp"
+                        android:text="국밥"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:checkedIcon="@drawable/icon_checked_"
+                        app:checkedIconVisible="true"
+                        app:chipBackgroundColor="@color/colorChipCtg_" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/main_tag22"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:checkable="true"
+                        android:clickable="true"
+                        android:ellipsize="end"
+                        android:focusable="true"
+                        android:fontFamily="@font/noto_sans"
+                        android:maxLines="1"
+                        android:padding="10dp"
+                        android:text="분식"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:checkedIcon="@drawable/icon_checked_"
+                        app:checkedIconVisible="true"
+                        app:chipBackgroundColor="@color/colorChipCtg_" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/main_tag23"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:checkable="true"
+                        android:clickable="true"
+                        android:ellipsize="end"
+                        android:focusable="true"
+                        android:fontFamily="@font/noto_sans"
+                        android:maxLines="1"
+                        android:padding="10dp"
+                        android:text="고급스러운느낌"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:checkedIcon="@drawable/icon_checked_"
+                        app:checkedIconVisible="true"
+                        app:chipBackgroundColor="@color/colorChipCtg_" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/main_tag24"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:checkable="true"
+                        android:clickable="true"
+                        android:ellipsize="end"
+                        android:focusable="true"
+                        android:fontFamily="@font/noto_sans"
+                        android:maxLines="1"
+                        android:padding="10dp"
+                        android:text="간이썐"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:checkedIcon="@drawable/icon_checked_"
+                        app:checkedIconVisible="true"
+                        app:chipBackgroundColor="@color/colorChipCtg_" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/main_tag25"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:checkable="true"
+                        android:clickable="true"
+                        android:ellipsize="end"
+                        android:focusable="true"
+                        android:fontFamily="@font/noto_sans"
+                        android:maxLines="1"
+                        android:padding="10dp"
+                        android:text="먹을수록 맛있는"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:checkedIcon="@drawable/icon_checked_"
+                        app:checkedIconVisible="true"
+                        app:chipBackgroundColor="@color/colorChipCtg_" />
+
+                </com.google.android.material.chip.ChipGroup>
+                <!-- 메인 태그 그룹 END -->
+                <!-- 펼치기 버튼 추가 -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/main_tag_show__button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="@color/extendBtn_"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/noto_sans"
+                    android:text="@string/main_tag_show_button_string"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/main_tag_group" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+</FrameLayout>

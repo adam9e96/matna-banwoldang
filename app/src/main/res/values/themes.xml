@@ -1,0 +1,28 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.MyApplicationtest" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/md_theme_light_primary</item>
+        <item name="colorPrimaryVariant">@color/md_theme_light_primaryContainer</item>
+        <item name="colorSecondary">@color/md_theme_light_secondary</item>
+        <item name="colorSecondaryVariant">@color/md_theme_light_secondaryContainer</item>
+        <item name="colorTertiary">@color/md_theme_light_tertiary</item>
+        <item name="colorSurface">@color/md_theme_light_surface</item>
+        <item name="colorSurfaceVariant">@color/md_theme_light_surfaceDim</item>
+        <item name="colorOnPrimary">@color/md_theme_light_inversePrimary</item>
+        <item name="colorOnSecondary">@color/md_theme_light_inverseOnSurface</item>
+        <item name="colorOnSurface">@color/md_theme_light_inverseOnSurface</item>
+        <item name="android:timePickerStyle">@style/MyTimePickerTheme</item>
+    </style>
+
+    <style name="Theme.MyApplicationtest" parent="Base.Theme.MyApplicationtest" />
+
+    <style name="Theme.MyApplicationtest.NoActionBar" parent="Base.Theme.MyApplicationtest">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.MyApplicationtest.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.MyApplicationtest.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+</resources>
