@@ -65,33 +65,3 @@ MAPS_API_KEY=YOUR_RESTRICTED_API_KEY
 ```
 
 `secrets.properties`가 없으면 `local.defaults.properties`의 공개 기본값이 사용됩니다. 기본값으로는 앱을 빌드할 수 있지만 지도 기능은 동작하지 않습니다.
-
-### 3. 빌드 및 테스트
-
-Windows:
-
-```powershell
-.\gradlew.bat clean testDebugUnitTest assembleDebug
-```
-
-macOS/Linux:
-
-```bash
-./gradlew clean testDebugUnitTest assembleDebug
-```
-
-## 저장소 공개 체크
-
-- 실제 `app/google-services.json`, `secrets.properties`, `local.properties`는 커밋하지 않습니다.
-- Maps API 키에는 Android 애플리케이션과 Maps SDK 제한을 적용합니다.
-- Firebase Realtime Database와 Storage 보안 규칙을 확인합니다.
-- APK, AAB와 서명 키 파일은 커밋하지 않습니다.
-
-## TODO
-
-- [ ] Firebase Realtime Database·Storage 보안 규칙 문서화
-- [ ] 예제 테스트를 실제 이미지 변환·데이터 검증 테스트로 교체
-- [ ] deprecated Activity Result·권한 API 마이그레이션
-- [ ] Glide annotation processor를 kapt로 통일
-- [ ] 네트워크·업로드 실패 상태와 사용자 안내 보강
-- [ ] README에 주요 화면 이미지 추가
